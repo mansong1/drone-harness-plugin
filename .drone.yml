@@ -2,12 +2,12 @@ kind: pipeline
 name: default
 
 steps:
-- name: Build
+- name: build
   image: python
   commands:
   - pip install -r requirements.txt
 
-- name: Publish
+- name: publish
   image: plugins/docker
   settings:
     username:
@@ -17,12 +17,12 @@ steps:
     repo: mansong/drone-harness-plugin
     auto_tag: true
 
-- name: Scan Image
+- name: scan image
   image: aquasec/trivy
   commands:
-  - trivy mansong/drone-harness-plugin:latest
+  - trivy fs --security-checks vuln,config ./
 
-- name: Harness-Deploy
+- name: harness deploy
   image: luisredda/drone-harness-plugin-param
   settings:  
     application: "Harness Demo Application"
