@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: ci
 
 steps:
 
@@ -11,7 +11,7 @@ steps:
 - name: lint dockerfile
   image: hadolint/hadolint
   commands:
-  - hadolint .
+  - hadolint -f Dockerfile .
 
 - name: publish
   image: plugins/docker
