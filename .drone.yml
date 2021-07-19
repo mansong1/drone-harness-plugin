@@ -2,11 +2,12 @@ kind: pipeline
 name: default
 
 steps:
-- name: build
+- name: Build
   image: python
   commands:
   - pip install -r requirements.txt
-- name: publish
+
+- name: Publish
   image: plugins/docker
   settings:
     username:
@@ -15,7 +16,8 @@ steps:
       from_secret: p_docker
     repo: mansong/drone-harness-plugin
     auto_tag: true
-- name: harness-deploy
+
+- name: Harness-Deploy
   image: luisredda/drone-harness-plugin-param
   settings:  
     application: "Harness Demo Application"
