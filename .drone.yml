@@ -37,3 +37,15 @@ steps:
     service_name: "order-service"
     build_number: "latest"
     artifact_source_name: "harness_todolist-sample"
+
+---
+kind: pipeline
+type: docker
+name: audit
+
+steps:
+
+- name: audit
+  image: pyupio/safety
+  commands:
+    - safety check
