@@ -17,6 +17,11 @@ steps:
     repo: mansong/drone-harness-plugin
     auto_tag: true
 
+- name: Scan Image
+  image: aquasec/trivy
+  commands:
+  - trivy mansong/drone-harness-plugin:latest
+
 - name: Harness-Deploy
   image: luisredda/drone-harness-plugin-param
   settings:  
