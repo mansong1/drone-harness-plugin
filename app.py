@@ -2,8 +2,7 @@ import requests
 import json
 import os
 
-example_var = 'PLUGIN_ACCOUNTID'
-ACCOUNT_ID = os.environ.get(example_var)
+ACCOUNT_ID = os.environ.get('PLUGIN_ACCOUNTID')
 API_KEY = os.environ.get('PLUGIN_APIKEY')
 APPLICATION_NAME = os.environ.get('PLUGIN_APPLICATION')
 WORKFLOW_NAME = os.environ.get('PLUGIN_ENTITYNAME')
