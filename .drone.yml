@@ -8,10 +8,15 @@ steps:
   commands:
   - pip install -r requirements.txt 
 
-- name: lint dockerfile
+- name: dockerlint
   image: hadolint/hadolint:latest-alpine
   commands:
   - hadolint Dockerfile
+
+- name: imagescan
+  image: aquasec/trivy
+  commands:
+  - trivy fs --security-checks vuln,config ./
 
 - name: publish
   image: plugins/docker
@@ -22,11 +27,8 @@ steps:
       from_secret: p_docker
     repo: mansong/drone-harness-plugin
     auto_tag: true
-
-- name: scan image
-  image: aquasec/trivy
-  commands:
-  - trivy fs --security-checks vuln,config ./
+  depends_on:
+    - imagescan
 
 - name: harness deploy
   image: luisredda/drone-harness-plugin-param
