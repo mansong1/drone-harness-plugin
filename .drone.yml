@@ -45,6 +45,8 @@ steps:
     service_name: "order-service"
     build_number: "latest"
     artifact_source_name: "harness_todolist-sample"
+  depends_on:
+    - publish
 
 ---
 kind: pipeline
