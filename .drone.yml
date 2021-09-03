@@ -31,7 +31,7 @@ steps:
     - imagescan
 
 - name: harness deploy
-  image: luisredda/drone-harness-plugin-param
+  image: mansong/drone-harness-plugin:latest
   settings:  
     application: "Harness Demo Application"
     type: "PIPELINE"
