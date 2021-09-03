@@ -31,20 +31,16 @@ steps:
     - imagescan
 
 - name: harness deploy
-  image: mansong/drone-harness-plugin:latest
-  settings:  
-    application: "Harness Demo Application"
-    type: "PIPELINE"
-    entityname: "CD Pipeline"
-    service: "search"
-    build: "v6"
+  image: rlachhman/drone-harness-trigger:1.0.0
+  settings:
     accountid:
       from_secret: harness_acctid
     apikey: 
       from_secret: harness_secret
-    service_name: "order-service"
-    build_number: "latest"
-    artifact_source_name: "harness_todolist-sample"
+    harnessservicename: "order-service"
+    artifactversion: "latest"
+    harnessartifactname: "harness_todolist-sample"
+    harnesswebhookid: "PR0pVTtHsHhq28EYXACrzZIXGdL75OnRyJm3jhQ5"
   depends_on:
     - publish
 
