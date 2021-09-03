@@ -38,7 +38,7 @@ steps:
     apikey: 
       from_secret: harness_secret
     harnessservicename: "order-service"
-    artifactversion: "latest"
+    artifactversion: "131"
     harnessartifactname: "harness_todolist-sample"
     harnesswebhookid: "PR0pVTtHsHhq28EYXACrzZIXGdL75OnRyJm3jhQ5"
   depends_on:
