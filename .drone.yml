@@ -6,7 +6,7 @@ steps:
 - name: build
   image: python
   commands:
-  - pip install -r requirements.txt 
+  - pip install -r requirements.txt
 
 - name: dockerlint
   image: hadolint/hadolint:latest-alpine
@@ -23,7 +23,7 @@ steps:
   settings:
     username:
       from_secret: u_docker
-    password: 
+    password:
       from_secret: p_docker
     repo: mansong/drone-harness-plugin
     auto_tag: true
@@ -35,7 +35,7 @@ steps:
   settings:
     accountid:
       from_secret: harness_acctid
-    apikey: 
+    apikey:
       from_secret: harness_secret
     harnessservicename: "order-service"
     artifactversion: "131"
