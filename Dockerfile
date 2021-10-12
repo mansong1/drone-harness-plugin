@@ -1,4 +1,4 @@
-FROM python:3.9.6-slim
+FROM python:3.9-slim
 
 RUN mkdir /opt/app
 COPY app.py /opt/app
